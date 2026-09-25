@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name | IT Professional Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           GENERAL STYLES
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2f5f8f;
+            --dark: #172033;
+            --text: #4b5563;
+            --light-text: #6b7280;
+            --background: #ffffff;
+            --light-bg: #f6f8fb;
+            --border: #e5e7eb;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #374151;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: 0.25s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -7px;
+            background: var(--primary);
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 1.7rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 0%,
+                    #f7f9fc 100%
+                );
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4.3rem);
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 18px;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-wrapper {
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            padding: 8px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(23, 32, 51, 0.12);
+        }
+
+        .profile-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+
+        /* ========================================
+           ABOUT SECTION
+        ======================================== */
+
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-info {
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-item {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--light-bg);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .info-item span {
+            color: var(--light-text);
+        }
+
+
+        /* ========================================
+           WORK EXPERIENCE
+        ======================================== */
+
+        .experience {
+            background: var(--light-bg);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 9px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #d9e0e8;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 45px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 5px solid var(--light-bg);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .experience-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: 0.25s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(23, 32, 51, 0.08);
+        }
+
+        .experience-card h3 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .experience-date {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-bottom: 18px;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+            list-style: disc;
+        }
+
+        .experience-card li {
+            margin-bottom: 8px;
+        }
+
+
+        /* ========================================
+           SKILLS
+        ======================================== */
+
+        .skills {
+            background: var(--white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--white);
+            transition: 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px rgba(23, 32, 51, 0.06);
+        }
+
+        .skill-card h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            color: #374151;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+
+        /* ========================================
+           EDUCATION
+        ======================================== */
+
+        .education {
+            background: var(--light-bg);
+        }
+
+        .education-card {
+            max-width: 800px;
+            margin: auto;
+            padding: 32px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .education-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: #eef3f8;
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .education-card h3 {
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .education-school {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-date {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+
+        /* ========================================
+           CONTACT
+        ======================================== */
+
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--white);
+            transition: 0.25s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(23, 32, 51, 0.06);
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #eef3f8;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .contact-card strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .contact-card span,
+        .contact-card a {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+            background: var(--dark);
+            color: #d1d5db;
+            padding: 35px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-name {
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: 0.25s ease;
+        }
+
+        .social-links a:hover {
+            border-color: #9ca3af;
+            color: var(--white);
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.25s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-light);
+        }
+
+
+        /* ========================================
+           MOBILE NAVIGATION
+        ======================================== */
+
+        @media (max-width: 768px) {
+
+            .nav-links {
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 10px 5%;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 13px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 45px;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                width: 240px;
+                height: 240px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+        }
+
+
+        /* ========================================
+           SMALL MOBILE DEVICES
+        ======================================== */
+
+        @media (max-width: 480px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-title {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.92rem;
+            }
+
+            .profile-wrapper {
+                width: 210px;
+                height: 210px;
+            }
+
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+
+            .experience-card,
+            .education-card,
+            .contact-card {
+                padding: 20px;
+            }
+
+            .education-card {
+                gap: 15px;
+            }
+
+            .education-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+
+                <a href="#home" class="logo">
+                    Your<span>Name</span>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">
+                    ☰
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ========================================
+         HERO
+    ======================================== -->
+
+    <section class="hero" id="home">
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+
+                    <p class="hero-title">
+                        IT Professional | Web Developer | Digital Solutions
+                    </p>
+
+                    <h1>
+                        Hello, I'm <span>Your Name</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        An Information Technology graduate with experience in
+                        administrative support, web development, digital tools,
+                        and creative projects. I enjoy learning new technologies
+                        and creating practical solutions.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#contact" class="btn btn-primary">
+                            Contact Me
+                        </a>
+
+                        <a href="resume.pdf" class="btn btn-outline" target="_blank">
+                            View Resume
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-image">
+
+                    <div class="profile-wrapper">
+                        <img
+                            src="images/profile.jpg"
+                            alt="Professional profile photo"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========================================
+         ABOUT ME
+    ======================================== -->
+
+    <section class="section about" id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>
+                    A short introduction about my background and professional interests.
+                </p>
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-text">
+
+                    <h3>Professional Background</h3>
+
+                    <p>
+                        I am an Information Technology graduate interested in
+                        technology, administrative work, digital solutions,
+                        and creative development.
+                    </p>
+
+                    <p>
+                        My experience includes working with web technologies,
+                        software development tools, graphic design, mapping
+                        applications, and office-related tasks.
+                    </p>
+
+                    <p>
+                        I am continuously improving my technical and professional
+                        skills while gaining practical experience in the workplace.
+                    </p>
+
+                </div>
+
+                <div class="about-info">
+
+                    <div class="info-item">
+                        <strong>Field</strong>
+                        <span>Information Technology</span>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Interests</strong>
+                        <span>Web Development, Software, Digital Tools</span>
+                    </div>
+
+                    <div class="info-item">
+                        <strong>Work Approach</strong>
+                        <span>Organized, Detail-Oriented, and Willing to Learn</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         WORK EXPERIENCE
+    ======================================== -->
+
+    <section class="section experience" id="experience">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p>
+                    Professional experience and responsibilities.
+                </p>
+            </div>
+
+            <div class="timeline">
+
+                <!-- EXPERIENCE 1 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="experience-card">
+
+                        <h3>Administrative Aide</h3>
+
+                        <p class="experience-company">
+                            Municipal Assessor's Office
+                        </p>
+
+                        <p class="experience-date">
+                            July 2026 – Present
+                        </p>
+
+                        <ul>
+                            <li>
+                                Assist with administrative and office-related
+                                activities within the Municipal Assessor's Office.
+                            </li>
+
+                            <li>
+                                Assist in organizing and processing property
+                                assessment-related documents and records.
+                            </li>
+
+                            <li>
+                                Perform property and lot plotting using mapping
+                                tools for accurate property visualization.
+                            </li>
+
+                            <li>
+                                Transfer plotted property data to digital maps
+                                for reference and documentation.
+                            </li>
+
+                            <li>
+                                Support field appraisal activities by recording
+                                property measurements, building characteristics,
+                                and other relevant information.
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPERIENCE 2 -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="experience-card">
+
+                        <h3>Graphic Designer</h3>
+
+                        <p class="experience-company">
+                            Makerspace Innovhub
+                        </p>
+
+                        <p class="experience-date">
+                            2025
+                        </p>
+
+                        <ul>
+                            <li>
+                                Created promotional graphics and visual materials
+                                for events and activities.
+                            </li>
+
+                            <li>
+                                Designed event identification materials and
+                                creative assets.
+                            </li>
+
+                            <li>
+                                Developed children's coloring book materials
+                                and other visual content.
+                            </li>
+
+                            <li>
+                                Collaborated with team members to improve
+                                design concepts and final outputs.
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         SKILLS
+    ======================================== -->
+
+    <section class="section skills" id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Skills</h2>
+                <p>
+                    Technical and professional skills I use in my work and projects.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+
+                <!-- TECHNICAL SKILLS -->
+
+                <div class="skill-card">
+
+                    <h3>Development</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Unity</span>
+                    </div>
+
+                </div>
+
+
+                <!-- TOOLS -->
+
+                <div class="skill-card">
+
+                    <h3>Tools & Software</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">QGIS</span>
+                        <span class="skill-tag">Office Applications</span>
+                    </div>
+
+                </div>
+
+
+                <!-- PROFESSIONAL SKILLS -->
+
+                <div class="skill-card">
+
+                    <h3>Professional</h3>
+
+                    <div class="skill-list">
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Organization</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Adaptability</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         EDUCATION
+    ======================================== -->
+
+    <section class="section education" id="education">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Education</h2>
+                <p>
+                    Academic background and educational experience.
+                </p>
+            </div>
+
+            <div class="education-card">
+
+                <div class="education-icon">
+                    🎓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Bachelor of Science in Information Technology
+                    </h3>
+
+                    <p class="education-school">
+                        Urdaneta City University
+                    </p>
+
+                    <p class="education-date">
+                        2018 – 2022
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         CONTACT
+    ======================================== -->
+
+    <section class="section contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Contact</h2>
+
+                <p>
+                    Feel free to reach out through any of the contact details below.
+                </p>
+
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- EMAIL -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        @
+                    </div>
+
+                    <div>
+                        <strong>Email</strong>
+
+                        <a href="mailto:your.email@example.com">
+                            your.email@example.com
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        TEL
+                    </div>
+
+                    <div>
+                        <strong>Phone</strong>
+
+                        <a href="tel:+630000000000">
+                            +63 000 000 0000
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        LOC
+                    </div>
+
+                    <div>
+                        <strong>Location</strong>
+
+                        <span>
+                            City, Province, Philippines
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- LINKEDIN -->
+
+                <div class="contact-card">
+
+                    <div class="contact-icon">
+                        IN
+                    </div>
+
+                    <div>
+                        <strong>LinkedIn</strong>
+
+                        <a
+                            href="https://www.linkedin.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            linkedin.com/in/yourusername
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <p class="footer-name">
+                        Your Name
+                    </p>
+
+                    <p class="footer-copy">
+                        © 2026 Your Name. All rights reserved.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+
+    <script>
+
+        /* Mobile Navigation */
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+
+            if (navLinks.classList.contains("active")) {
+                menuToggle.innerHTML = "✕";
+            } else {
+                menuToggle.innerHTML = "☰";
+            }
+        });
+
+
+        /* Close Mobile Menu When Link Is Clicked */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+                menuToggle.innerHTML = "☰";
+
+            });
+
+        });
+
+
+        /* Back To Top Button */
+
+        const backToTop = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+
+        });
+
+
+        /* Back To Top Action */
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
